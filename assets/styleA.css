@@ -1,0 +1,49 @@
+/* ===== Version A: six boxes stacked vertically ===== */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+}
+
+/* Flexbox column: boxes are centered horizontally and the free
+   vertical space is shared equally between them. min-height lets the
+   container grow when the window is too short, so boxes never overlap. */
+.boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    min-height: 100vh;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.box {
+    flex-shrink: 0; /* boxes never change size */
+    width: 100px;
+    height: 100px;
+    border-top: 1px solid #687291;
+    background-color: #dfe1e7;
+    text-align: center;
+}
+
+/* Alternating colors: A, C, E -> #dfe1e7 / B, D -> #eeeff2 */
+.box:nth-child(even) {
+    background-color: #eeeff2;
+}
+
+/* Final element (F): darker color, 4px black border, text centered vertically */
+.box:last-child {
+    background-color: #687291;
+    border: 4px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

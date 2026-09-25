@@ -1,0 +1,44 @@
+/* ===== Version B: five boxes in a row + one box in the bottom right corner ===== */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 40px;
+}
+
+/* Boxes A-E sit on one line in the top left corner and never wrap */
+.boxes {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.box {
+    flex-shrink: 0; /* keep 100x150 even when the window is too narrow */
+    box-sizing: border-box; /* border and padding stay inside 100x150 */
+    width: 100px;
+    height: 150px;
+    padding: 10px; /* 10px between the letter and the edge of the box */
+    border-left: 10px dotted #D0D0FF;
+    background-color: #eeeff2;
+    line-height: 1;
+}
+
+.box:hover {
+    cursor: pointer;
+    background-color: yellow;
+    color: goldenrod;
+}
+
+/* Last box (F) is pinned to the bottom right corner of the window */
+.box:last-child {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
